@@ -21,8 +21,12 @@ const a1 = new American('Jack', 22)
 console.log('a1', a1)
 
 class Chinese extends Person{
-
+  constructor(name,age,IdNumber){
+    super(name,age)
+    // 在子类中，this只能放在super之后
+    this.IdNumber = IdNumber
+  }
 }
 
-const c1 = new Chinese('张思', 25)
+const c1 = new Chinese('张思', 25, 130628199010093798)
 console.log('c1', c1);

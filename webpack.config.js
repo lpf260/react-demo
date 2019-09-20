@@ -24,6 +24,10 @@ module.exports = {
         test: /\.js|.jsx$/,
         use: 'babel-loader',
         exclude: /node_modules/ //千万不能忘记添加exclude排除项
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
       }
     ]
   },
@@ -36,7 +40,7 @@ module.exports = {
     ],
     // 别名
     alias: {
-      '@': path.join(__dirname,'./src') // 这样在这个项目中@符号表示项目根目录中src的路径
+      '@': path.join(__dirname, './src') // 这样在这个项目中@符号表示项目根目录中src的路径
     }
   }
 }
