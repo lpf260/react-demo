@@ -21,13 +21,39 @@ module.exports = {
     rules: [
       // 第三方匹配规则
       {
-        test: /\.js|.jsx$/,
+        test: /\.js|jsx$/,
         use: 'babel-loader',
         exclude: /node_modules/ //千万不能忘记添加exclude排除项
       },
+      // 在css-loader之后，通过?追加参数，其中，有个固定的参数，叫做modules，表示为普通的css样式表，启用模块化
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: [
+          'style-loader',
+          'css-loader',
+        ]
+      },
+      {
+        test: /\.ttf|woff|woff2|eot|svg$/,
+        use: ['url-loader']
+      },
+      {
+        test: /\.scss$/,
+        use: [{
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[path][name]-[local]-[hash:base64:5]',
+              },
+            }
+          },
+          {
+            loader: 'sass-loader',
+          }
+        ]
       }
     ]
   },

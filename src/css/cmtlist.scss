@@ -1,0 +1,22 @@
+.main {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.title {
+  color: red;
+  font-size: 25px;
+  z-index: 3;
+  font-Weight: 200;
+  text-align: center;
+}
+
+/* css模块化只针对类名和ID选择器生效, css模块化不会将标签选择器模块化 */
+/* h1{
+  font-style: italic;
+} */
+
+/* 全局样式 */
+:global(.test) {
+  font-style: italic;
+}
